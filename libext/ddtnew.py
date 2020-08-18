@@ -5,11 +5,11 @@
 # DDT is licensed under the MIT License, included in
 # https://github.com/txels/ddt/blob/master/LICENSE.md
 
+import codecs
 import inspect
 import json
 import os
 import re
-import codecs
 from functools import wraps
 
 try:

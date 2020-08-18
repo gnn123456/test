@@ -6,21 +6,16 @@ from common.splicing import file_os1
 from libext.ddtnew import ddt, data
 from logs.log import get_logger
 from reports.request import Request
-from reports.parameter import data_1
-from reports.methods import MD5Test
-
-logging=get_logger(logger_name="登录断言处理")
+from reports.parameter_1 import data_1
+logging=get_logger(logger_name="校验密码断言处理")
 @ddt
-class Register(unittest.TestCase):
-    do_excel = Do_excel(file_os1, "login")
+class Check(unittest.TestCase):
+    do_excel = Do_excel(file_os1, "checkPassword")
     cases = do_excel.excel()
     def setUp(self):
-        print("------------------开始执行登录测试用例----------------------")
+        print("------------------开始执行校验密码测试用例----------------------")
     @data(*cases)
     def test_login(self,case):
-        if "123123gnn" in case.data:
-            passwoed=MD5Test("123123gnn").upper()
-            case.data=case.data.replace("123123gnn",passwoed)
         logging.info("开始执行第{}个条测试用例".format(case.case_id))
         data_2=data_1.data1
         data_2["data"]=json.loads(case.data)
@@ -37,4 +32,4 @@ class Register(unittest.TestCase):
             self.do_excel.write_data(case.case_id + 1, res.text, "flas")
             logging.error("第{}条的结果为：flas".format(case.case_id))
             raise e
-
+#

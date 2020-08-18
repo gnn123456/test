@@ -1,12 +1,4 @@
 [api]
-pre_url=http://test.lemonban.com/futureloan/mvc/api
+pre_url=https://t-bjbus.tuspass.net/
 
 
-
-[data]
-admin_user=15003556788
-admin_pwd=123456
-add_user=1115242
-tzr_user=18735571533
-tzr_pwd=123456
-tzr_userid=1114473

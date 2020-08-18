@@ -4,10 +4,8 @@ from common.confin import confing
 from reports.jm import decrypt_str
 from reports.methods import MD5Test
 from reports.parameter import data_1
+
 class Request:
-    def __init__(self):
-        """放在初始化函数里，可以存放登陆过的cookis"""
-        self.session=requests.session()
     def request(self,method,url,json):
         """ 把方法转换为大写"""
         method=method.upper()
@@ -20,9 +18,9 @@ class Request:
             json=eval(json)
         """公共参数与参数进行拼接请求接口"""
         if method=="GET":
-            return self.session.request(method,url=url,json=json)
+            return requests.request(method,url=url,json=json)
         if method=="POST":
-            return self.session.request(method,url=url,json=json)
+            return requests.request(method,url=url,json=json)
         else:
             print("接口错误")
 if __name__=="__main__":
@@ -33,5 +31,3 @@ if __name__=="__main__":
     data_2["data"] = data
     res=Request().request(method=method,url=url,json=data_2)
     print(decrypt_str(res.json()))
-
-
